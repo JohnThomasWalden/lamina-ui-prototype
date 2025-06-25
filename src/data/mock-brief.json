@@ -1,0 +1,17 @@
+{
+  "recommendationsMd": "# Current Performance Analysis\n\n## Key Insights\n\nYour campaign is showing **strong engagement** but **ROAS is below target** at 1.2x vs. 2.0x goal.\n\n## Recommendations\n\n1. **Increase budget allocation** to top-performing ad sets by 25%\n2. **Optimize bidding strategy** for better conversion rates\n3. **Test new creative variations** to improve CTR\n\n## Action Items\n\n- Review audience targeting parameters\n- Implement dynamic creative optimization\n- Monitor competitor activity in your vertical",
+  "currentMetrics": {
+    "roas": 1.2,
+    "ctr": 2.8,
+    "cpc": 1.45,
+    "conversionRate": 3.2
+  },
+  "targets": {
+    "roas": 2.0,
+    "ctr": 3.5,
+    "cpc": 1.20,
+    "conversionRate": 4.0
+  },
+  "budgetShift": 25,
+  "goalROAS": 2.0
+} 
