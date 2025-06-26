@@ -28,23 +28,6 @@ function describeArc(cx: number, cy: number, r: number, startAngle: number, endA
   ].join(' ');
 }
 
-function describePie(cx: number, cy: number, r: number, startAngle: number, endAngle: number) {
-  // For a filled semicircle
-  const start = (Math.PI / 180) * startAngle;
-  const end = (Math.PI / 180) * endAngle;
-  const x1 = cx + r * Math.cos(start);
-  const y1 = cy + r * Math.sin(start);
-  const x2 = cx + r * Math.cos(end);
-  const y2 = cy + r * Math.sin(end);
-  const largeArcFlag = Math.abs(endAngle - startAngle) > 180 ? 1 : 0;
-  return [
-    `M ${cx} ${cy}`,
-    `L ${x1} ${y1}`,
-    `A ${r} ${r} 0 ${largeArcFlag} 1 ${x2} ${y2}`,
-    'Z'
-  ].join(' ');
-}
-
 export default function RadialBarChart({
   startAngle = 180,
   endAngle = 0,
