@@ -10,14 +10,14 @@ export async function GET() {
     const file = await fs.readFile(publicPath, 'utf-8');
     const brief = JSON.parse(file);
     // Map historical_series to historicalMetrics
-    const historicalMetrics = (brief.historical_series || []).map((h: any, i: number) => ({
+    const historicalMetrics = (brief.historical_series || []).map((h: Record<string, unknown>, i: number) => ({
       date: h.date,
       roas: h.roas,
       spend: 1000 + i * 100, // Dummy spend value
       conversions: 50 + i * 5 // Dummy conversions value
     }));
     data = { historicalMetrics };
-  } catch (e) {
+  } catch {
     // fallback to imported mockHistorical
   }
   return NextResponse.json(data);

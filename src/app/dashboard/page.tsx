@@ -1,6 +1,5 @@
 import PresentPanel from '@/components/PresentPanel';
 import { Top as FuturePanelTop, Bottom as FuturePanelBottom } from '@/components/FuturePanel';
-import MetricCard from '@/components/MetricCard';
 
 export default function DashboardPage() {
   return (

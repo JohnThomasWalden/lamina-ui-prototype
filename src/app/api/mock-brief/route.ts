@@ -12,7 +12,7 @@ export async function GET() {
     const publicPath = path.join(process.cwd(), 'public', 'mock-brief.json');
     const file = await fs.readFile(publicPath, 'utf-8');
     data = JSON.parse(file);
-  } catch (e) {
+  } catch {
     // If reading fails, fallback to imported mockBrief
   }
   return NextResponse.json(data);

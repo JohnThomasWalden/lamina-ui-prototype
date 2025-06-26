@@ -15,7 +15,7 @@ export default function ChartWrapper({ children, minWidth = 200, maxWidth = 1200
   useEffect(() => {
     if (!ref.current) return;
     const observer = new window.ResizeObserver((entries) => {
-      for (let entry of entries) {
+      for (const entry of entries) {
         if (entry.contentRect) {
           setWidth(Math.max(minWidth, Math.min(maxWidth, entry.contentRect.width)));
         }

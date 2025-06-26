@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import HorizonTable from './HorizonTable';
 import AreaBandChart from './AreaBandChart';
-import BarChart from './BarChart';
 import MetricCard from './MetricCard';
 
 interface ForecastData {
@@ -167,7 +166,6 @@ export function Bottom() {
             />
           </div>
         )}
-        {/* {historicalData && <BarChart data={historicalData.historicalMetrics} />} */}
       </div>
     </section>
   );
