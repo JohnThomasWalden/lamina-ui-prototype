@@ -1,5 +1,7 @@
 "use client";
 
+import ChartWrapper from "./ChartWrapper";
+
 interface RadialBarChartProps {
   startAngle: number;
   endAngle: number;
@@ -37,51 +39,55 @@ export default function RadialBarChart({
   strokeWidth = 18,
   children
 }: RadialBarChartProps) {
-  const radius = (size - strokeWidth) / 2;
-  const center = size / 2;
-
-  // Arc paths
-  const backgroundArcPath = describeArc(center, center, radius, startAngle, endAngle);
-  const progress = Math.min(Math.max(value / maxValue, 0), 1);
-  const progressAngle = startAngle + (endAngle - startAngle) * progress;
-  const progressArcPath = describeArc(center, center, radius, startAngle, progressAngle);
-
-  // Color
-  const getColor = (progress: number) => {
-    if (progress < 0.3) return '#ef4444'; // red
-    if (progress < 0.7) return '#f59e0b'; // yellow
-    return '#10b981'; // green
-  };
-
+  // Responsive: size will be set by ChartWrapper
   return (
-    <div className="relative inline-block">
-      <svg width={size} height={size} className="transform -rotate-90">
-        {/* Background arc (very light) */}
-        <path
-          d={backgroundArcPath}
-          fill="none"
-          stroke="#e2e8f0"
-          strokeWidth={strokeWidth}
-          strokeLinecap="round"
-          opacity="0.25"
-        />
-        {/* Progress arc (vibrant, thick, rounded) */}
-        <path
-          d={progressArcPath}
-          fill="none"
-          stroke={getColor(progress)}
-          strokeWidth={strokeWidth + 2}
-          strokeLinecap="round"
-          className="transition-all duration-500 ease-out"
-          filter="drop-shadow(0 2px 8px rgba(16,185,129,0.25))"
-        />
-      </svg>
-      {/* Content overlay */}
-      {children && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          {children}
-        </div>
-      )}
-    </div>
+    <ChartWrapper minWidth={120} maxWidth={400} height={size}>
+      {(width) => {
+        const radius = (width - strokeWidth) / 2;
+        const center = width / 2;
+        // Arc paths
+        const backgroundArcPath = describeArc(center, center, radius, startAngle, endAngle);
+        const progress = Math.min(Math.max(value / maxValue, 0), 1);
+        const progressAngle = startAngle + (endAngle - startAngle) * progress;
+        const progressArcPath = describeArc(center, center, radius, startAngle, progressAngle);
+        // Color
+        const getColor = (progress: number) => {
+          if (progress < 0.3) return '#ef4444'; // red
+          if (progress < 0.7) return '#f59e0b'; // yellow
+          return '#10b981'; // green
+        };
+        return (
+          <div className="relative inline-block" style={{ width, height: width }}>
+            <svg width={width} height={width} className="transform -rotate-90">
+              {/* Background arc (very light) */}
+              <path
+                d={backgroundArcPath}
+                fill="none"
+                stroke="#e2e8f0"
+                strokeWidth={strokeWidth}
+                strokeLinecap="round"
+                opacity="0.25"
+              />
+              {/* Progress arc (vibrant, thick, rounded) */}
+              <path
+                d={progressArcPath}
+                fill="none"
+                stroke={getColor(progress)}
+                strokeWidth={strokeWidth + 2}
+                strokeLinecap="round"
+                className="transition-all duration-500 ease-out"
+                filter="drop-shadow(0 2px 8px rgba(16,185,129,0.25))"
+              />
+            </svg>
+            {/* Content overlay */}
+            {children && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                {children}
+              </div>
+            )}
+          </div>
+        );
+      }}
+    </ChartWrapper>
   );
 } 

@@ -1,6 +1,33 @@
 import { NextResponse } from 'next/server';
+import path from 'path';
+import { promises as fs } from 'fs';
 import mockForecast from '@/data/mock-forecast.json';
 
 export async function GET() {
-  return NextResponse.json(mockForecast);
+  let data = mockForecast;
+  try {
+    const publicPath = path.join(process.cwd(), 'public', 'mock-brief.json');
+    const file = await fs.readFile(publicPath, 'utf-8');
+    const brief = JSON.parse(file);
+    // Map outlook_windows to outlook
+    const outlook = (brief.outlook_windows || []).map((w: any) => ({
+      window: `${w.horizon}-day`,
+      roas: w.roas_delta,
+      confidence: w.confidence >= 80 ? 'high' : w.confidence >= 65 ? 'medium' : 'low',
+      trend: w.roas_delta > 0 ? 'up' : w.roas_delta < 0 ? 'down' : 'stable',
+      budget: 0, // Placeholder, as not present in brief
+      conversions: 0 // Placeholder
+    }));
+    // Map forecast_insights to forecastSeries
+    const forecastSeries = (brief.forecast_insights || []).map((f: any, i: number) => ({
+      date: `2025-06-${String(10 + i).padStart(2, '0')}`,
+      min: f.p10,
+      max: f.p90,
+      expected: f.p50
+    }));
+    data = { outlook, forecastSeries };
+  } catch (e) {
+    // fallback to imported mockForecast
+  }
+  return NextResponse.json(data);
 } 

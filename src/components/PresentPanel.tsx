@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import PresentActions from './PresentActions';
 
 interface MockBrief {
@@ -40,13 +41,13 @@ export default function PresentPanel() {
 
   if (!brief) {
     return (
-      <section className="h-full flex flex-col gap-4 bg-slate-800/80 backdrop-blur rounded-2xl shadow-[0_1px_4px_rgba(0,0,0,0.35)]">
+      <section className="flex flex-col gap-4 bg-glass-dark backdrop-blur rounded-2xl shadow-glass">
         <div className="animate-pulse">
-          <div className="h-6 bg-slate-700 rounded mb-4"></div>
+          <div className="h-6 bg-glass-dark rounded mb-4"></div>
           <div className="space-y-2">
-            <div className="h-4 bg-slate-700 rounded"></div>
-            <div className="h-4 bg-slate-700 rounded w-3/4"></div>
-            <div className="h-4 bg-slate-700 rounded w-1/2"></div>
+            <div className="h-4 bg-glass-dark rounded"></div>
+            <div className="h-4 bg-glass-dark rounded w-3/4"></div>
+            <div className="h-4 bg-glass-dark rounded w-1/2"></div>
           </div>
         </div>
       </section>
@@ -54,18 +55,18 @@ export default function PresentPanel() {
   }
 
   return (
-    <section className="h-full flex flex-col gap-4 bg-slate-800/80 backdrop-blur rounded-2xl shadow-[0_1px_4px_rgba(0,0,0,0.35)]">
+    <section className="flex flex-col gap-4 bg-glass-dark backdrop-blur rounded-2xl shadow-glass">
       <h2 className="text-xl font-semibold text-white">Present Panel</h2>
       
       {/* Report & Recommendations */}
-      <div className="flex-1 bg-slate-700 rounded-lg p-4 overflow-y-auto">
-        <div className="prose prose-invert prose-sm max-w-none">
-          <ReactMarkdown>{brief.recommendationsMd}</ReactMarkdown>
+      <div className="bg-glass-dark rounded-lg p-4 overflow-y-auto">
+        <div className="prose prose-invert prose-sm max-w-none present-panel-prose">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{brief.recommendationsMd}</ReactMarkdown>
         </div>
       </div>
 
       {/* Interactive Controls */}
-      <div className="bg-slate-700 rounded-lg p-4">
+      <div className="bg-glass-dark rounded-lg p-4">
         <PresentActions
           budgetShift={budgetShift}
           goalROAS={goalROAS}

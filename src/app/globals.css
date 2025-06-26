@@ -84,3 +84,49 @@ body {
   color: #f1f5f9;
   font-weight: 600;
 }
+
+.present-panel-prose {
+  /* No longer set font-size globally, only for specific elements below */
+}
+.present-panel-prose p,
+.present-panel-prose ul,
+.present-panel-prose ol,
+.present-panel-prose li {
+  font-size: 12px !important;
+  line-height: 1.7 !important;
+}
+.present-panel-prose table,
+.present-panel-prose th,
+.present-panel-prose td {
+  font-size: 12px !important;
+  line-height: 1.7 !important;
+  padding: 0.35em 0.75em !important;
+  text-align: left !important;
+}
+.present-panel-prose table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 1.2em !important;
+}
+.present-panel-prose th {
+  font-weight: 600 !important;
+  background: rgba(255,255,255,0.03);
+}
+.present-panel-prose tr {
+  border-bottom: 1px solid #334155;
+}
+.present-panel-prose hr {
+  margin-top: 1.5em !important;
+  margin-bottom: 1.5em !important;
+  border-color: #334155 !important;
+}
+.present-panel-prose h1,
+.present-panel-prose h2,
+.present-panel-prose h3,
+.present-panel-prose h4,
+.present-panel-prose h5,
+.present-panel-prose h6 {
+  font-weight: bold;
+  margin-top: 1.2em;
+  margin-bottom: 0.7em;
+}

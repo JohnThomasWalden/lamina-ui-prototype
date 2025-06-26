@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import HorizonTable from './HorizonTable';
 import AreaBandChart from './AreaBandChart';
 import BarChart from './BarChart';
+import MetricCard from './MetricCard';
 
 interface ForecastData {
   outlook: Array<{
@@ -144,7 +145,29 @@ export function Bottom() {
     <section className="bg-slate-800/80 backdrop-blur rounded-2xl shadow-[0_1px_4px_rgba(0,0,0,0.35)] p-4">
       <h2 className="text-xl font-semibold text-white mb-4">Past Performance</h2>
       <div className="bg-slate-700 rounded-lg p-4">
-        {historicalData && <BarChart data={historicalData.historicalMetrics} />}
+        {historicalData && (
+          <div className="w-full flex flex-row justify-between">
+            <MetricCard
+              label="ROAS"
+              value={`${historicalData.historicalMetrics[historicalData.historicalMetrics.length - 1].roas.toFixed(1)}x`}
+              data={historicalData.historicalMetrics.map(d => d.roas)}
+              className="flex-1 mx-2"
+            />
+            <MetricCard
+              label="Spend"
+              value={`$${historicalData.historicalMetrics[historicalData.historicalMetrics.length - 1].spend.toLocaleString()}`}
+              data={historicalData.historicalMetrics.map(d => d.spend)}
+              className="flex-1 mx-2"
+            />
+            <MetricCard
+              label="Conversions"
+              value={historicalData.historicalMetrics[historicalData.historicalMetrics.length - 1].conversions}
+              data={historicalData.historicalMetrics.map(d => d.conversions)}
+              className="flex-1 mx-2"
+            />
+          </div>
+        )}
+        {/* {historicalData && <BarChart data={historicalData.historicalMetrics} />} */}
       </div>
     </section>
   );

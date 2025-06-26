@@ -1,0 +1,39 @@
+{
+    "query": "How do we lift blended ROAS while cutting wasted spend?",
+    "goal": "Raise blended ROAS to 1.50 in 30 days",
+    "similar_campaigns": [
+      { "id": 1, "channel": "Social", "roas": 4.23, "ctr": 1.9, "cpa": 21 },
+      { "id": 2, "channel": "Display", "roas": 0.22, "ctr": 0.8, "cpa": 118 },
+      { "id": 3, "channel": "CTV", "roas": 0.00, "ctr": 0.3, "cpa": 999 }
+    ],
+    "forecast_insights": [
+      { "metric": "ROAS", "p10": 1.30, "p50": 1.42, "p90": 1.55, "confidence_score": 80 },
+      { "metric": "Spend", "p10": 18500, "p50": 20000, "p90": 21500, "confidence_score": 70 },
+      { "metric": "Revenue", "p10": 24000, "p50": 28500, "p90": 33000, "confidence_score": 65 }
+    ],
+    "benchmarks": { "roas": 1.48, "ctr": 1.2, "cpa": 50 },
+    "trends": ["Mobile-first video ads driving ↑CTR", "CTV CPMs rising q/q"],
+    "analysis_quality": { "avg_similarity": 0.78, "data_quality": 85 },
+    "outlook_windows": [
+      { "horizon": 14, "roas_delta": 0.3, "confidence": 82, "note": "Budget shift effect" },
+      { "horizon": 30, "roas_delta": 0.6, "confidence": 71, "note": "Creative refresh lands" },
+      { "horizon": 60, "roas_delta": 1.4, "confidence": 64, "note": "Seasonality risk" },
+      { "horizon": 90, "roas_delta": 1.9, "confidence": 60, "note": "Wider forecast band" }
+    ],
+    "historical_series": [
+      { "date": "2025-05-15", "roas": 1.10, "spend": 1200, "conversions": 60 },
+      { "date": "2025-05-22", "roas": 1.18, "spend": 1300, "conversions": 65 },
+      { "date": "2025-05-29", "roas": 1.12, "spend": 1250, "conversions": 62 },
+      { "date": "2025-06-05", "roas": 1.25, "spend": 1400, "conversions": 70 },
+      { "date": "2025-06-12", "roas": 1.39, "spend": 1500, "conversions": 80 },
+      { "date": "2025-06-19", "roas": 1.31, "spend": 1450, "conversions": 75 },
+      { "date": "2025-06-26", "roas": 1.36, "spend": 1600, "conversions": 90 },
+      { "date": "2025-07-03", "roas": 1.42, "spend": 1700, "conversions": 95 },
+      { "date": "2025-07-10", "roas": 1.29, "spend": 1650, "conversions": 85 },
+      { "date": "2025-07-17", "roas": 1.40, "spend": 1900, "conversions": 95 }
+    ],
+    "recommendationsMd": "### Executive Summary\n\nA single social line (ROAS 4.23) is still carrying the portfolio while Display and CTV lag badly (ROAS ≤ 0.22). Prophet's horizon-expansion confirms that **organic trend is flat out to 60 days**, so performance gains must come from re-allocation and creative refresh. Shifting just 20 % of low-ROI spend toward Social should lift blended ROAS above the 1.48 peer benchmark within two weeks.\n\n---\n\n### 17-Day KPI Forecast (p50)\n\n| Metric      | Direction | Δ %    | Confidence      |\n| ----------- | --------- | ------ | --------------- |\n| ROAS        | stable    | +0.4 % | High (80)       |\n| Spend USD   | stable    | +1.0 % | High (70)       |\n| Revenue USD | stable    | +1.4 % | High (65)       |\n| CPA         | stable    | +0.5 % | High (70)       |\n| CTR         | stable    | +0.6 % | Very High (87)  |\n\n*Interpretation – The model shows no organic lift; optimisation is mandatory.*\n\n---\n\n### Outlook by Window (p50)\n\n| Horizon | ROAS Δ p50 | Confidence   | Note                                          |\n| ------- | ---------- | ------------ | --------------------------------------------- |\n| 14-day  | +0.3 pp    | High (82)    | Benefit from immediate budget shift to Social |\n| 30-day  | +0.6 pp    | Medium (71)  | Assumes video creative goes live by day 7     |\n| 60-day  | +1.4 pp    | Low-Med (64) | Wider bands due to auction volatility         |\n\n*Derived by rolling up Prophet daily series into 14/30/60-day buckets; same p10/p50/p90 method applies.*\n\n---\n\n### Key Learnings from Similar Campaigns\n\n1. **Social is the growth engine** – ROAS 4.23, CPA $21 vs. benchmark CPA $50 .\n2. **Display & CTV drag totals** – ROAS ≤ 0.22, CTR ≤ 0.8 %; creative-audience mismatch .\n3. **Short-form video outperforms** – peers report higher CTR on mobile-first video units .\n\n---\n\n### Recommended Actions & Rationale\n\n| # | Action                                                            | Why it Matters                                                               |\n| - | ----------------------------------------------------------------- | ---------------------------------------------------------------------------- |\n| 1 | **Reallocate $8 k** (-$5 k CTV, -$3 k Display → +$8 k Social) | Funds the only channel beating forecast; lifts blended ROAS by ≈ +0.5–0.7 pp |\n| 2 | **Launch 3 mobile-video creatives** in Display                    | Should raise CTR toward 1.5 %; improves quality score                        |\n| 3 | **Geo-tighten CTV** to US + JP only                               | Removes zero-revenue impressions; frees ~$3 k/month                        |\n| 4 | **Enable $50 CPA guard-rails** across campaigns                  | Caps downside if forecasts err; keeps ROAS ≥ 1.5                             |\n\n---\n\n### Next-Step Checklist\n\n| Task                                                       | Owner             | Due      | Resource / Budget |\n| ---------------------------------------------------------- | ----------------- | -------- | ----------------- |\n| Shift budgets (-$5 k CTV, -$3 k Display → +$8 k Social) | **Media Buyer**   | Today    | Internal          |\n| Brief & produce 3×15-sec mobile video                      | **Creative Lead** | +3 days  | ≈ $2 k           |\n| Apply geo filters to CTV (US, JP) & pause others           | **Ad Ops**        | +5 days  | In-platform       |\n| Set $50 CPA caps in all ad sets                           | **Ad Ops**        | +5 days  | In-platform       |\n| Review 7-day deltas vs. p50; re-run if ROAS < 1.5          | **Analyst**       | Next Mon | BI dashboard      |\n\n---\n\n*Generated using Phase-1 similarity JSON and expanded Phase-2 Prophet forecasts; no live ad-platform calls executed.*",
+    "budgetShift": 25,
+    "goalROAS": 2.0
+}
+  
