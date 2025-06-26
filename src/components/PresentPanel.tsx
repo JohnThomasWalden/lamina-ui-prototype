@@ -40,7 +40,7 @@ export default function PresentPanel() {
 
   if (!brief) {
     return (
-      <section className="h-full flex flex-col gap-4 bg-slate-800 p-4 rounded-2xl">
+      <section className="h-full flex flex-col gap-4 bg-slate-800/80 backdrop-blur rounded-2xl shadow-[0_1px_4px_rgba(0,0,0,0.35)]">
         <div className="animate-pulse">
           <div className="h-6 bg-slate-700 rounded mb-4"></div>
           <div className="space-y-2">
@@ -54,7 +54,7 @@ export default function PresentPanel() {
   }
 
   return (
-    <section className="h-full flex flex-col gap-4 bg-slate-800 p-4 rounded-2xl">
+    <section className="h-full flex flex-col gap-4 bg-slate-800/80 backdrop-blur rounded-2xl shadow-[0_1px_4px_rgba(0,0,0,0.35)]">
       <h2 className="text-xl font-semibold text-white">Present Panel</h2>
       
       {/* Report & Recommendations */}
