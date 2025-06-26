@@ -12,9 +12,17 @@ export async function GET() {
     // Map outlook_windows to outlook
     const outlook = (brief.outlook_windows || []).map((w: Record<string, unknown>) => ({
       window: `${w.horizon}-day`,
-      roas: w.roas_delta,
-      confidence: w.confidence >= 80 ? 'high' : w.confidence >= 65 ? 'medium' : 'low',
-      trend: w.roas_delta > 0 ? 'up' : w.roas_delta < 0 ? 'down' : 'stable',
+      roas: Number(w.roas_delta),
+      confidence: Number(w.confidence) >= 80
+        ? 'high'
+        : Number(w.confidence) >= 65
+          ? 'medium'
+          : 'low',
+      trend: Number(w.roas_delta) > 0
+        ? 'up'
+        : Number(w.roas_delta) < 0
+          ? 'down'
+          : 'stable',
       budget: 0, // Placeholder, as not present in brief
       conversions: 0 // Placeholder
     }));
